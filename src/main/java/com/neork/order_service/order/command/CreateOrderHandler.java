@@ -9,8 +9,6 @@ import com.neork.order_service.order.model.Order;
 import com.neork.order_service.order.repository.OrderRepository;
 import com.neork.order_service.outbox.model.OutboxEvent;
 import com.neork.order_service.outbox.repository.OutboxEventRepository;
-import com.neork.order_service.validation.TenantOrderValidator;
-import com.neork.order_service.validation.TenantValidatorFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -19,13 +17,11 @@ public class CreateOrderHandler {
 
     private final OrderRepository orderRepository;
     private final OutboxEventRepository outboxEventRepository;
-    private final TenantValidatorFactory tenantValidatorFactory;
 
     public CreateOrderHandler(OrderRepository orderRepository,
-                              OutboxEventRepository outboxEventRepository, TenantValidatorFactory tenantValidatorFactory) {
+                              OutboxEventRepository outboxEventRepository) {
         this.orderRepository = orderRepository;
         this.outboxEventRepository = outboxEventRepository;
-        this.tenantValidatorFactory = tenantValidatorFactory;
     }
 
     @Transactional
@@ -37,9 +33,7 @@ public class CreateOrderHandler {
         order.setQuantity(command.getQuantity());
 
 
-        TenantOrderValidator validator =
-                tenantValidatorFactory.getValidator(order.getTenantId());
-        validator.validate(order);
+
         order.setStatus(OrderStatus.PENDING);
         Order savedOrder = orderRepository.save(order);
 
