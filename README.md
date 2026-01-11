@@ -293,6 +293,79 @@ curl http://localhost:8080/api/v1/orders/1
 }
 ```
 
+## 🔍 Example Scenarios (Tenant-Based Behavior)
+
+The same API behaves differently based on tenant-specific validation rules.
+Each scenario uses the same POST and GET `/api/v1/orders` endpoint.
+Only the request body differs based on tenant and validation rules.
+
+
+
+---
+### Tenant B – Valid Order
+**Request Body**
+
+```json
+{
+  "tenantId": "TENANT_B",
+  "amount": 1000,
+  "quantity": 20
+}
+```
+
+**Result after saga processing**
+
+```json
+{
+  "status": "PROCESSED"
+}
+```
+
+###Tenant B – Invalid Order
+**Request Body**
+
+```json
+{
+  "tenantId": "TENANT_B",
+  "amount": 1000,
+  "quantity": 2
+}
+```
+
+**Result after saga processing**
+
+```json
+{
+  "status": "FAILED",
+  "failureMessage": "Tenant B validation failed: amount > 100 and quantity > 10 required"
+}
+```
+
+### Invalid Tenant
+**Request Body**
+
+```json
+{
+  "tenantId": "TENANT_X",
+  "amount": 500,
+  "quantity": 5
+}
+```
+
+**Result after saga processing**
+
+```json
+{
+  "status": "FAILED",
+  "failureMessage": "Invalid tenant"
+}
+```
+
+
+Same way Tenant A can be tested.
+
+
+
 ---
 
 ## 🧠 Summary
