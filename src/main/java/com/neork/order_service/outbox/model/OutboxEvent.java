@@ -1,8 +1,8 @@
 package com.neork.order_service.outbox.model;
 
-import com.neork.order_service.enums.AggregateType;
-import com.neork.order_service.enums.OutboxEventType;
-import com.neork.order_service.enums.OutboxStatus;
+import com.neork.order_service.outbox.enums.AggregateType;
+import com.neork.order_service.outbox.enums.OutboxEventType;
+import com.neork.order_service.outbox.enums.OutboxStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

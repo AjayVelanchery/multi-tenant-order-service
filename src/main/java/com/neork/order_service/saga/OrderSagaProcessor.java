@@ -1,6 +1,5 @@
 package com.neork.order_service.saga;
 
-import com.neork.order_service.enums.OrderStatus;
 import com.neork.order_service.exception.ValidationException;
 import com.neork.order_service.order.model.Order;
 import com.neork.order_service.order.repository.OrderRepository;
@@ -36,11 +35,12 @@ public class OrderSagaProcessor {
             TenantOrderValidator validator =
                     tenantValidatorFactory.getValidator(order.getTenantId());
             validator.validate(order);
-            order.setStatus(OrderStatus.PROCESSED);
+            order.markProcessed();
 
         } catch (ValidationException ex) {
-
-            order.setStatus(OrderStatus.FAILED);
+            order.markFailed(ex.getMessage());
         }
+
+
     }
 }

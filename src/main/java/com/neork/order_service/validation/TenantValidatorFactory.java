@@ -1,12 +1,17 @@
 package com.neork.order_service.validation;
 
-import com.neork.order_service.validation.TenantOrderValidator;
+import com.neork.order_service.exception.ValidationException;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
 
 @Component
 public class TenantValidatorFactory {
+
+    /**
+     * Resolves tenant-specific validators using Spring's Map injection.
+     * Key = tenantId, Value = TenantOrderValidator implementation.
+     */
 
     private final Map<String, TenantOrderValidator> validators;
 
@@ -18,9 +23,7 @@ public class TenantValidatorFactory {
         TenantOrderValidator validator = validators.get(tenantId);
 
         if (validator == null) {
-            throw new IllegalArgumentException(
-                    "No validator configured for tenant: " + tenantId
-            );
+            throw new ValidationException("Invalid tenant");
         }
         return validator;
     }

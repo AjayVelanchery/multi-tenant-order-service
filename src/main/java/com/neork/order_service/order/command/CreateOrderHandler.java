@@ -1,10 +1,10 @@
 package com.neork.order_service.order.command;
 
 
-import com.neork.order_service.enums.AggregateType;
-import com.neork.order_service.enums.OrderStatus;
-import com.neork.order_service.enums.OutboxEventType;
-import com.neork.order_service.enums.OutboxStatus;
+import com.neork.order_service.outbox.enums.AggregateType;
+import com.neork.order_service.order.enums.OrderStatus;
+import com.neork.order_service.outbox.enums.OutboxEventType;
+import com.neork.order_service.outbox.enums.OutboxStatus;
 import com.neork.order_service.order.model.Order;
 import com.neork.order_service.order.repository.OrderRepository;
 import com.neork.order_service.outbox.model.OutboxEvent;

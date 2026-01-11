@@ -1,4 +1,4 @@
-package com.neork.order_service.enums;
+package com.neork.order_service.order.enums;
 
 public enum OrderStatus {
     PENDING,

@@ -1,6 +1,6 @@
 package com.neork.order_service.order.model;
 
-import com.neork.order_service.enums.OrderStatus;
+import com.neork.order_service.order.enums.OrderStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -33,4 +33,18 @@ public class Order {
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private OrderStatus status;
+
+    @Column(name = "failure_message")
+    private String failureMessage;
+
+    public void markProcessed() {
+        this.status = OrderStatus.PROCESSED;
+        this.failureMessage = null;
+    }
+
+    public void markFailed(String message) {
+        this.status = OrderStatus.FAILED;
+        this.failureMessage = message;
+    }
+
 }

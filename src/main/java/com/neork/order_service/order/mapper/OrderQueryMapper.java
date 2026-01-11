@@ -13,7 +13,8 @@ public final class OrderQueryMapper {
                 order.getTenantId(),
                 order.getAmount(),
                 order.getQuantity(),
-                order.getStatus().name()
+                order.getStatus().name(),
+                order.getFailureMessage()
         );
     }
 }

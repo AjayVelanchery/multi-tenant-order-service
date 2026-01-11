@@ -1,6 +1,6 @@
 package com.neork.order_service.order.service;
 
-import com.neork.order_service.enums.OrderStatus;
+import com.neork.order_service.order.enums.OrderStatus;
 import com.neork.order_service.order.command.CreateOrderCommand;
 import com.neork.order_service.order.command.CreateOrderHandler;
 import com.neork.order_service.order.dto.CreateOrderRequestDto;

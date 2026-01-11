@@ -1,4 +1,4 @@
-package com.neork.order_service.enums;
+package com.neork.order_service.outbox.enums;
 
 public enum OutboxStatus {
     PENDING,

@@ -1,6 +1,6 @@
 package com.neork.order_service.outbox.worker;
 
-import com.neork.order_service.enums.OutboxStatus;
+import com.neork.order_service.outbox.enums.OutboxStatus;
 import com.neork.order_service.outbox.model.OutboxEvent;
 import com.neork.order_service.outbox.repository.OutboxEventRepository;
 import com.neork.order_service.saga.OrderSagaProcessor;
@@ -26,10 +26,8 @@ public class OutboxWorker {
     @Transactional
     public void processOutboxEvents() {
 
-        List<OutboxEvent> events =
-                outboxEventRepository.findByStatusIn(
-                        List.of(OutboxStatus.PENDING, OutboxStatus.IN_PROGRESS)
-                );
+        List<OutboxEvent> events =outboxEventRepository
+                                  .findByStatusIn(List.of(OutboxStatus.PENDING, OutboxStatus.IN_PROGRESS));
 
         for (OutboxEvent event : events) {
 

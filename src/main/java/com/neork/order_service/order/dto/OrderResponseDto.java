@@ -14,4 +14,6 @@ public class OrderResponseDto {
     private BigDecimal amount;
     private int quantity;
     private String status;
+    private String failureMessage;
+
 }
