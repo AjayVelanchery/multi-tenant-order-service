@@ -334,7 +334,7 @@ Only the request body differs based on tenant and validation rules.
 }
 ```
 
-###Tenant B – Invalid Order
+### Tenant B – Invalid Order
 **Request Body**
 
 ```json
