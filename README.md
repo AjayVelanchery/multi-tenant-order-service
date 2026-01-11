@@ -13,8 +13,6 @@ The focus of this project is **correctness, extensibility, and reliability**, no
 * Java 21+
 * Any Java IDE (IntelliJ IDEA recommended)
 
-> **Note:** Maven does not need to be installed separately.
-> This project uses **Maven Wrapper (`mvnw`)**.
 
 ### Steps
 
