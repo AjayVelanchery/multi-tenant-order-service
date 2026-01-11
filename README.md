@@ -124,6 +124,19 @@ This allows:
 * Adding new tenants without modifying existing code
 * Full compliance with the **Open–Closed Principle**
 
+### Example Tenant Validation Rules
+
+The current implementation includes the following example rules:
+
+- **Tenant A**
+    - `amount > 100`
+
+- **Tenant B**
+    - `amount > 100`
+    - `quantity > 10`
+
+These rules are implemented only as examples.
+
 ---
 
 ## 🔁 How the Outbox + Saga Flow Works
