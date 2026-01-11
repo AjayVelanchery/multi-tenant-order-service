@@ -14,6 +14,11 @@ The focus of this project is **correctness, extensibility, and reliability**, no
 * Any Java IDE (IntelliJ IDEA recommended)
 
 
+### Setup
+* Clone the repository
+* Open the project in IntelliJ 
+
+
 ### Steps
 
 ```bash
