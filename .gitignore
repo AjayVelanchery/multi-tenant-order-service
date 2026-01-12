@@ -1,0 +1,16 @@
+# Maven
+target/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+
+# H2 database files
+*.mv.db
+*.trace.db
