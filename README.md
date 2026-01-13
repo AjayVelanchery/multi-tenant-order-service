@@ -198,7 +198,7 @@ The application uses an **in-memory H2 database**.
 ### H2 Console
 
 * URL: `http://localhost:8080/h2-console`
-* JDBC URL: `jdbc:h2:mem:testdb`
+* JDBC URL: `jdbc:h2:file:./data/orderdb`
 * Username: `sa`
 * Password: *(leave empty)*
 
